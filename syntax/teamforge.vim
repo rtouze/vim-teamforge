@@ -24,7 +24,6 @@ syntax cluster teamforgeInline contains=teamforgeLineBreak,
       \ teamforgeLinkText,teamforgeItalic,teamforgeBold,
       \ teamforgeCode,teamforgeEscape,@htmlTop
 
-
 " Headings definition
 syntax region teamforgeH1 matchgroup=teamforgeHeadingDelimiter 
       \ start="!!!!\@!" end="$" 
@@ -41,7 +40,7 @@ syntax region teamforgeH3 matchgroup=teamforgeHeadingDelimiter
 syntax region teamforgeCodeBlock matchgroup=teamforgeCodeDelimiter 
       \ start="{{{" end="}}}" keepend
 
-" Lists...
+" Bullets and numbered Lists...
 syntax match teamforgeListMarker "\* \{0,1}\%(\s\+\S\)\@=" contained
 syntax match teamforgeOrderedListMarker "# \{0,1}\%(\s*\S\)\@=" contained
 
@@ -56,7 +55,7 @@ syntax match teamforgeLineBreak "\s\\\{2,\}$"
 syntax region teamforgeLinkText matchgroup=teamforgeUrlDelimiter 
       \ start="\[\@<!\[\[\@!" end="\]" oneline keepend 
 " Show pascal case expressions as links (if not preceded by a tilde)
-syntax match teamforgeLinkText "\~\@<!\u\l\+\u\l\+"
+syntax match teamforgeLinkText "\~\@<!\(\u\l\+\)\{2,\}"
 
 " Font decoration
 syntax region teamforgeItalic 
